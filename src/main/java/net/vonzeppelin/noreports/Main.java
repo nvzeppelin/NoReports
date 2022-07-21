@@ -50,17 +50,13 @@ public final class Main extends JavaPlugin implements Listener {
             e.setCancelled(true); // don't run the command
             List<String> args = new java.util.ArrayList<>(Arrays.stream(e.getMessage().split(" ", 2)).toList());
             args.remove(0);
-            switch (cmd) {
-                case "/tell", "/msg" -> {
-                    Player p = Bukkit.getPlayer(args.get(0).split(" ")[0]);
-                    if (p == null)  {
-                        e.getPlayer().sendMessage("Player could not be found");
-                        return;
-                    }
-                    e.getPlayer().sendMessage("You whispered to " + p.getDisplayName() + ": "+ args.get(0).split(" ",2)[1]);
-                    p.sendMessage(e.getPlayer().getDisplayName() + " whispered to you: " + args.get(0).split(" ", 2)[1]);
-                }
+            Player p = Bukkit.getPlayer(args.get(0).split(" ")[0]);
+            if (p == null) {
+                e.getPlayer().sendMessage("Player could not be found");
+                return;
             }
+            e.getPlayer().sendMessage("You whispered to " + p.getDisplayName() + ": " + args.get(0).split(" ", 2)[1]);
+            p.sendMessage(e.getPlayer().getDisplayName() + " whispered to you: " + args.get(0).split(" ", 2)[1]);
         }
     }
 
