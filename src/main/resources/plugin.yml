@@ -1,8 +1,8 @@
 name: Noreports
 version: '${version}'
 main: net.vonzeppelin.noreports.Main
-api-version: 1.19
-prefix: [ Noreports: ]
+api-version: 1.19.1
+prefix: "Noreports"
 load: STARTUP
 authors: [ Franogames ]
 description: Prevents reports of messages
